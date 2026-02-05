@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pixel Heart Quest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="phone">
+        <audio id="game-music" loop>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+
+        <button id="mute-btn" class="pixel-mute" onclick="toggleMusic()">
+            <span id="mute-icon">🔊</span>
+        </button>
+
+        <div id="wrong-overlay" class="hidden">
+            <div class="pixel-popup">
+                <p>WRONG OPTION!</p>
+                <button class="menu-item main" onclick="hideWrong()">[ OOPS ]</button>
+            </div>
+        </div>
+
+        <section id="p1" class="screen active">
+            <div class="pixel-avatar">ฅ^•ﻌ•^ฅ</div>
+            <h1 class="pixel-header">WILL YOU BE MY VALENTINE, MANURAA?</h1>
+            <div class="pixel-menu">
+                <button class="menu-item alt" onclick="showWrong()">[ NO ]</button>
+                <button class="menu-item alt" onclick="showWrong()">[ NOPE ]</button>
+                <button class="menu-item alt" onclick="showWrong()">[ NEVER ]</button>
+                <button class="menu-item main" onclick="showWow()">[ YES! ]</button>
+            </div>
+        </section>
+
+        <section id="p2" class="screen">
+            <div class="pixel-avatar">✨😻✨</div>
+            <h1 class="pixel-header">I KNEW IT!</h1>
+            <p class="pixel-text">COLLECT HEARTS TO UNLOCK MY LETTERS</p>
+            <button class="menu-item main pulse" onclick="showTutorial()">[ START QUEST ]</button>
+        </section>
+
+        <div id="tutorial-overlay" class="hidden">
+            <div class="pixel-popup">
+                <div class="pixel-hand">👆</div>
+                <p>TAP THE HEARTS!</p>
+                <p style="font-size: 18px;">(4 TAPS = 1 LETTER)</p>
+                <button class="menu-item main" onclick="startGame()">[ GOT IT! ]</button>
+            </div>
+        </div>
+
+        <section id="p3" class="screen">
+            <div class="pixel-timeline">
+                <div class="nodes-container">
+                    <div class="pixel-node" id="node-0"><div class="p-liquid"></div><span>✉</span></div>
+                    <div class="pixel-node" id="node-1"><div class="p-liquid"></div><span>✉</span></div>
+                    <div class="pixel-node" id="node-2"><div class="p-liquid"></div><span>✉</span></div>
+                    <div class="pixel-node" id="node-3"><div class="p-liquid"></div><span>✉</span></div>
+                    <div class="pixel-node" id="node-4"><div class="p-liquid"></div><span>✉</span></div>
+                </div>
+            </div>
+            <div id="game-canvas"></div>
+        </section>
+
+        <div id="overlay" class="hidden">
+            <div class="pixel-card">
+                <div class="pixel-envelope-wrap" id="pixel-env" onclick="openLetter()">
+                    <div class="env-body">
+                        <div class="env-flap"></div>
+                        <div class="env-seal">❤</div>
+                    </div>
+                </div>
+                <div id="letter-content" class="hidden">
+                    <div class="pixel-letter-bg">
+                        <p id="msg-text"></p>
+                    </div>
+                    <button class="menu-item main" onclick="closeLetter(event)">[ CONTINUE ]</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
